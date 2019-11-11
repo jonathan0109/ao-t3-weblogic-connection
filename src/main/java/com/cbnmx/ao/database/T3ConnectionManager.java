@@ -35,6 +35,8 @@ public final class T3ConnectionManager {
         {
             context = new InitialContext(properties);
             dataSource = (DataSource)context.lookup("jdbc/AOAppDS");
+
+            System.out.println("Datasource was found!");
         
         } catch(NamingException namingException) {
 
@@ -52,6 +54,8 @@ public final class T3ConnectionManager {
             try
             {
                 connection = getDataSource().getConnection();
+
+                System.out.println("Successful connection!");
 
             } catch(SQLException sqlException) {
 
@@ -74,6 +78,8 @@ public final class T3ConnectionManager {
 
                 connection = null;
                 context = null;
+
+                System.out.println("Connection closed!");
 
             }catch(SQLException sqlException) {
 
